@@ -21,7 +21,6 @@ a quantidade "a mais" deve ser retrocedido
  */
 package armadilhas;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -66,35 +65,41 @@ public class Armadilhas {
             QtdTurnos = QtdTurnos++; //Turno é: A cada 3 jogadas ou a cada jogada ?
 
             for (int i = 0; i < jogadores.length; i++) {
-                //Chamar jogador na posição i para jogar os dados.
-                System.out.println("Por favor " + jogadores[i] + " Jogue os dados!");
+                if (jogaTurno[i]) {
+                    //Chamar jogador na posição i para jogar os dados.
+                    System.out.println("Por favor " + jogadores[i] + " Jogue os dados!");
 
-                int dado1 = JogaDado();
-                int dado2 = JogaDado();
-                int pontosDados = dado1 + dado2;
+                    int dado1 = JogaDado();
+                    int dado2 = JogaDado();
+                    int pontosDados = dado1 + dado2;
+                    
+                    System.out.println("Posição Anterior: " + posicaoJogador[i]);
+                    System.out.println("1º Dado: " + dado1 + " | 2º Dado: " + dado2 + " | Totalizando: " + pontosDados);
 
-                System.out.println("1º Dado: " + dado1 + " | 2º Dado: " + dado2 + " | Totalizando: " + pontosDados);
+                    //Altera o posição do jogador em questão
+                    posicaoJogador[i] += pontosDados;
 
-                //Altera o posição do jogador em questão
-                posicaoJogador[i] += pontosDados;
+                    if (posicaoJogador[i] > 49) {
+                        int casasRetrocesso = (posicaoJogador[i] - 49);
+                        System.out.println("Poxa, a quantidade de pontos nos dados ultrapassou o fim do tabuleiro :( em " + casasRetrocesso + " casa(s), então você irá voltar " + casasRetrocesso + " casa(s).");
 
-                if (posicaoJogador[i] > 49) {
-                    int casasRetrocesso = (posicaoJogador[i] - 49);
-                    System.out.println("Poxa, a quantidade de pontos nos dados ultrapassou o fim do tabuleiro :( em " + casasRetrocesso + " casas, então você irá voltar " + casasRetrocesso + " casas.");
+                        posicaoJogador[i] = 49 - casasRetrocesso;
+                        System.out.println("Você está na posição: " + posicaoJogador[i] + " do tabuleiro.");
 
-                    posicaoJogador[i] = 49 - casasRetrocesso;
-                    System.out.println("Você está na posição: " + posicaoJogador[i] + " do tabuleiro.");
+                        jogaTurno[i] = false;
+                    } else {
+                        System.out.println("Você está na posição: " + posicaoJogador[i] + " do tabuleiro.");
+                        jogaTurno[i] = true;
+                    }
 
-                    jogaTurno[i] = false;
+                    if (posicaoJogador[i] == 49) {
+                        semGanhador = false;
+                        System.out.println("Ganhador é: " + jogadores[i]);
+                        return;
+                    }
                 } else {
-                    System.out.println("Você está na posição: " + posicaoJogador[i] + " do tabuleiro.");
+                    System.out.println("Esse turno você não joga :/ " + jogadores[i]);
                     jogaTurno[i] = true;
-                }
-
-                if (posicaoJogador[i] == 49) {
-                    semGanhador = false;
-                    System.out.println("Ganhador é: " + jogadores[i]);
-                    return;
                 }
             }
 
