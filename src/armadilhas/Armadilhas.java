@@ -32,6 +32,7 @@ public class Armadilhas {
         int QtdTurnos = 0;
         Scanner sc = new Scanner(System.in);
 
+        System.out.println("Olá! Seja bem-vindo ao Joga das Armadilhas! \n O objetivo é chegar na posição 49 do tabuleiro, \n mas cuidado com as armadilhas, elas podem te atrasar!\n");
         //Solicita o nome de cada jogador e armazena no vetor Jogadores
         for (int linha = 0; linha < 3; linha++) {
             System.out.println("Digite o nome do " + (linha + 1) + "º Jogador(a):");
@@ -83,8 +84,9 @@ public class Armadilhas {
                         }
 
                         if (posicaoJogador[i] == 49) {
-                            System.out.println("Quantidade de Turnos: " + QtdTurnos);
-                            System.out.println("Ganhador é: " + jogadores[i]);
+                            System.out.println();
+                            System.out.println("Com uma Quantidade de: " + QtdTurnos + " turnos");
+                            System.out.println("O Ganhador é: " + jogadores[i] + "!!!");
                             return;
                         }
                     }
