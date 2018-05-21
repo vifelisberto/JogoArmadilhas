@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- * @authors vfelisberto(21034071), Felipe(21133423), Gustavo(21088401)
+ * @authors vifelisberto(21034071), Felipe(21133423), Gustavo(21088401)
  * @github https://github.com/vifelisberto/JogoArmadilhas (Private até a entrega)
  * JOGO DAS ARMADILHAS 3 Jogadores e 48 posições (mais início e fim 50, o vetor
  * se inicia em 0 e vai até 49) Todos começam no inicio(posição 0)
@@ -102,6 +102,7 @@ public class Armadilhas {
     }
 
     public static int JogaDados() {
+        //Joga os dois dados
         int dado1 = JogaDado();
         int dado2 = JogaDado();
         int pontos = dado1 + dado2;
