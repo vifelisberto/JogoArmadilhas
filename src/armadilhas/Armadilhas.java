@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  * @author vifelisberto
- * @github https://github.com/vifelisberto/JogoArmadilhas (Private até a entrega)
+ * @github https://github.com/vifelisberto/JogoArmadilhas
  * JOGO DAS ARMADILHAS 3 Jogadores e 48 posições (mais início e fim 50, o vetor
  * se inicia em 0 e vai até 49) Todos começam no inicio(posição 0)
  *
