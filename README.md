@@ -1,2 +1,2 @@
-# JogoArmadilhas
-Atividade Prática Supervisionada - UAM
+# Jogo das Armadilhas
+APS - Java
